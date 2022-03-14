@@ -1,20 +1,19 @@
 // DEPENDENCIES
 
-// API
-import api from "./hooks/api"
+// HOOKS
+import CallHooks from "./hooks/Calls"
+
 // STYLES
 import './App.css';
 
 
 function App() {
   
-  const {countryAPI, converterAPI} = api()
+  const {getHomeCountry} = CallHooks()
 
   return (
     <div className="App">
       <h1>hello app</h1>
-      <h3>country api: {countryAPI}</h3>
-      <h3>converter api: {converterAPI}</h3>
     </div>
   );
 }

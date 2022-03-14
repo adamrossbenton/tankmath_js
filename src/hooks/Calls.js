@@ -4,7 +4,7 @@ import api from "./api"
 function CallHooks() {
 
     // API Calls
-    const {countryAPI, converterAPI} = api()
+    const {countryAPI, converterAPI, gallon, impGallon, countryList} = api()
     const name = `${countryAPI}/name/`
 
     // State
@@ -13,15 +13,30 @@ function CallHooks() {
     const [visitCountry, setVisitCountry] = useState(null)
     const [visitCurr, setVisitCurr] = useState(null)
 
-    const getHomeCountry = async (c) => {
+    // ALL-PURPOSE HOOKS
+    // Find country from list
+    const getCountry = async c => {
         console.log(name + c)
         const response = await fetch(name + c)
-        const data = await response.json()
-        setHomeCountry(data)
+        const data = await response.json
+        return data
+    }
+
+    // SPECIFIC HOOKS
+    // Set user's home country
+    const getHomeCountry = async c => {
+        setHomeCountry(getCountry(c))
+    }
+
+    // Set user's visiting country
+    const getVisitCountry = async c => {
+        setVisitCountry(getCountry(c))
     }
 
     return {
         getHomeCountry,
+        getVisitCountry,
+
     }
 
 }

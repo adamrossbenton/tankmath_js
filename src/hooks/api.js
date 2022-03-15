@@ -52,6 +52,7 @@ function api() {
 
     // ALL COUNTRIES
     // Source: https://gist.github.com/incredimike/1469814
+    // May need to find a new one of these, something more iterable
     const countryList = {
         "AFG": "Afghanistan",
         "ALB": "Albania",

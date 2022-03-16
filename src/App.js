@@ -32,11 +32,16 @@ function App() {
     return [e, countryNames[i]]
   })
 
-  console.log(countryOptions)
+const dropdown = () => {
+  return <>
+    {countryOptions.map((c) => (
+      <option>
+        {c[0]} - {c[1]}
+      </option>
+    ))}
+  </>
+}
 
-  const dropdown = () => {
-
-  }
 
   return (
     <div className="App">
@@ -45,6 +50,7 @@ function App() {
         <h2>Where are you visiting?</h2>
         <select>
           <option>Select a Country</option>
+          {dropdown()}
         </select>
         <h3>How much does gas cost there?</h3>
         <div style={flexDiv}>
@@ -54,6 +60,7 @@ function App() {
         <h2>Where are you from?</h2>
         <select>
           <option>Select a Country</option>
+          {dropdown()}
         </select>
         <h3>To you, the price listed above would feel like:</h3>
         <div style={flexDiv}>

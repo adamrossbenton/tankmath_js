@@ -26,23 +26,17 @@ function App() {
   const {getHomeCountry, getVisitCountry, convertCurr} = Calls()
   const {handleChange, handleSubmit} = FormHooks()
 
-  // const dropdown = () => {
-  //   console.log(Object.keys(countryList).length)
-  //   for (let i = 0; i < Object.keys(countryList).length; i++) {
-  //     return <option>{Object.keys(countryList)[i]}</option>
-  //   }
-  // }
-
-  // const dropdown = () => {
-  //   const countries = Object.keys(countryList)
-  //   countries.map((c) => (
-  //     <option>{c}</option>
-  //   ))
-  // }
-
   const countryCodes = Object.keys(countryList)
   const countryNames = Object.values(countryList)
+  const countryOptions = countryCodes.map((e,i) => {
+    return [e, countryNames[i]]
+  })
 
+  console.log(countryOptions)
+
+  const dropdown = () => {
+
+  }
 
   return (
     <div className="App">
